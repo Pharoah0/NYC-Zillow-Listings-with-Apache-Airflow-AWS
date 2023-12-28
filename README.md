@@ -31,14 +31,23 @@ I configured Lambda functions to trigger based on S3 PutObject activities:
 - Function #1 reacts to the raw S3 bucket, transforms that data into Parquet format, and places it into a second transformed S3 bucket
 - Function #2 reacts to the transformed S3 bucket, triggering a Glue Crawler to crawl the bucket and catalog the data from all files for visualization.
 
-## Discoveries made
+## Data Visuralization
+
+Courtesy of Amazon Quicksight
+
+<p align="center">
+    <img src="https://github.com/Pharoah0/NYC-Zillow-Listings-with-Apache-Airflow-AWS/blob/main/images/Sheet_1_2023-12-28T20_46_42.png" />
+</p>
 
 ## Ways to improve this project
 
 We can go entirely serverless; instead of using Airflow on an EC2 instance, we can utilize Amazon Managed Workflows for Apache Airflow - a serverless solution for operating Airflow within the cloud.
 
+<p align="center">
+    <img src="https://github.com/Pharoah0/NYC-Zillow-Listings-with-Apache-Airflow-AWS/blob/main/images/Zillow_MWAA_V1.png" />
+</p>
 Furthermore, we could also use Airflow to orchestrate different AWS services within DAGs for this scenario if we wanted to, instead of using Lambda functions.
-
+<p align="center">
+    <img src="https://github.com/Pharoah0/NYC-Zillow-Listings-with-Apache-Airflow-AWS/blob/main/images/Zillow_MWAA_V2.png" />
+</p>
 Lastly, we could build a web scraper that grabs data from all web pages from the Zillow search, totaling up to roughly 20,000 records.
-
-## Conclusions
